@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<title>Ikizamini cy'Amategeko y’Umuhanda</title>
+<style>
+  body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+  .question { margin-bottom: 20px; }
+  .answers label { display: block; margin-left: 20px; }
+  #result { font-weight: bold; margin-top: 20px; color: green; }
+</style>
+</head>
+<body>
+<h2>Ikizamini cy'Amategeko y’Umuhanda</h2>
+<form id="quizForm">
+<div class='question'><p>1. Igice cy’umuhanda kiri hakurya y’umurongo mugari wera kigenewe iki?</p>
+<label><input type='radio' name='q0' value='0'> Guhagararwamo umwanya muto gusa</label>
+<label><input type='radio' name='q0' value='0'> Guhagararwamo umwanya munini gusa</label>
+<label><input type='radio' name='q0' value='1'> Guhagararwamo umwanya muto n’umunini</label>
+</div>
+<div class='question'><p>2. Amatara ndangaburumbarare agomba kubonwa nijoro igihe ijuru rikeye mu ntera ya:</p>
+<label><input type='radio' name='q1' value='0'> m 50 nibura</label>
+<label><input type='radio' name='q1' value='0'> m 100</label>
+<label><input type='radio' name='q1' value='1'> m 200 nibura</label>
+</div>
+<div class='question'><p>3. Amabara y’amatara yo guhagarara umwanya muto ni ayahe?</p>
+<label><input type='radio' name='q2' value='1'> Umweru cyangwa umuhondo imbere, umutuku cyangwa umuhondo inyuma</label>
+<label><input type='radio' name='q2' value='0'> Umweru gusa</label>
+<label><input type='radio' name='q2' value='0'> Umutuku gusa</label>
+</div>
+<div class='question'><p>4. Iyo imirongo y’ingabo z’igihugu irenze m6, igaragazwa n’amabara ayahe?</p>
+<label><input type='radio' name='q3' value='0'> Itara rimwe cyangwa menshi yera</label>
+<label><input type='radio' name='q3' value='0'> Amatara menshi y’umuhondo</label>
+<label><input type='radio' name='q3' value='1'> Ibisubizo byose ni byo</label>
+</div>
+<div class='question'><p>5. Ndashaka gukata ibumoso. Imodoka y’icyatsi yahagaze. Ninde utambuka mbere?</p>
+<label><input type='radio' name='q4' value='0'> Mfite uburenganzira bwo gutambuka mbere</label>
+<label><input type='radio' name='q4' value='0'> Imodoka y’icyatsi ifite uburenganzira</label>
+<label><input type='radio' name='q4' value='1'> Twembi tugomba gutambuka twitondeye</label>
+</div>
+
+<button type="button" onclick="submitQuiz()">Ohereza</button>
+</form>
+<div id="result"></div>
+<script>
+function submitQuiz() {
+  let score = 0;
+  const total = 5;
+  for (let i = 0; i < total; i++) {
+    const radios = document.getElementsByName('q' + i);
+    for (let j = 0; j < radios.length; j++) {
+      if (radios[j].checked && radios[j].value === '1') {
+        score++;
+      }
+    }
+  }
+  document.getElementById('result').innerHTML = `Wabonye amanota: <strong>${score} / $5</strong>`;
+}
+</script>
+</body>
+</html>
